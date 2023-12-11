@@ -1,0 +1,43 @@
+</head>
+<body>
+	<div class="container mt-4">
+		<a th:href="@{/new}" class="btn btn-outline-info">NUEVO</a>
+		
+		<br>
+		<br>
+		<a><H2>LISTA DOCENTES</H2></a>
+		<br>
+		<br>
+		<table class="table">
+			<thead>
+				<tr class="table-secondary">
+					<th>ID</th>
+					<th>NOMBRES</th>
+					<th>CORREO</th>
+					<th>DIRECCION</th>
+					<th>CELULAR</th>
+					<th>MATERIA</th>
+					<th>FUNCIONES</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="docente:${docentes}">
+					<td th:text=${docente.id}></td>
+					<td th:text=${docente.nombres}></td>
+					<td th:text=${docente.correo}></td>
+					<td th:text=${docente.direccion}></td>
+					<td th:text=${docente.celular}></td>
+					<td th:text=${docente.materia}></td>
+					<td><a th:href="@{/edit/}+${docente.id}" class="btn btn-outline-warning">EDITAR</a>
+						<a th:onclick="eliminar([[${docente.id}]])" class="btn btn-outline-danger">ELIMINAR</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="funciones.js"></script>
+</body> 
+
+</html>
