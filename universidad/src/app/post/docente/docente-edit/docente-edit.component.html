@@ -1,0 +1,51 @@
+<div class="container">
+    <h1>Editar Docentes</h1>
+   
+    <a href="#" [routerLink]="['/docentes/']" class="btn btn-primary">Back</a>
+          
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label for="id">Nombre:</label>
+            <input 
+                formControlName="id"
+                id="id" 
+                type="text" 
+                [(ngModel)]="docente.id"
+                class="form-control">
+            <div *ngIf="f['id'].touched && f['id'].invalid" class="alert alert-danger">
+                <div *ngIf="f['id'].errors && f['id'].errors['required']">El nombre es requerido</div>
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label for="nombres">Nombre:</label>
+            <input 
+                formControlName="nombres"
+                id="nombres" 
+                type="text" 
+                [(ngModel)]="docente.nombres"
+                class="form-control">
+            <div *ngIf="f['nombres'].touched && f['nombres'].invalid" class="alert alert-danger">
+                <div *ngIf="f['nombres'].errors && f['nombres'].errors['required']">El nombre es requerido</div>
+            </div>
+        </div>
+           
+        <div class="form-group">
+            <label for="celular">N. Celular</label>
+            <textarea 
+                formControlName="celular"
+                id="celular" 
+                type="text" 
+                [(ngModel)]="docente.celular"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['celular'].touched && f['celular'].invalid" class="alert alert-danger">
+                <div *ngIf="f['celular'].errors && f['celular'].errors['required']">El celular es requerido.</div>
+            </div>
+        </div>
+         
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Actualizar</button>
+    </form>
+</div>
+

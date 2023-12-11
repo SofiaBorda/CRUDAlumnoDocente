@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Docente</h1>
+  
+    <a href="#" [routerLink]="['/docentes/']" class="btn btn-primary">Back</a>
+
+    <div *ngIf="docente">
+        <p>ID: {{ docente.id }}</p>
+        <p>Nombres: {{ docente.nombres }}</p>
+        <p>Correo Electrónico: {{ docente.celular }}</p>
+      </div>
+      <div *ngIf="!docente">
+        <p>El post no fue encontrado.</p>
+      </div>
+   
+</div>

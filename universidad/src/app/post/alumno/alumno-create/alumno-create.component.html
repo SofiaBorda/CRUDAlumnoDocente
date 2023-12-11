@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Crear Nuevo Alumno</h1>
+  
+    <a href="#"  [routerLink]="['/alumnos/']"  class="btn btn-primary">Back</a>
+        
+    <form [formGroup]="form" (ngSubmit)="submit()">
+  
+        <div class="form-group">
+            <label for="nombres">Nombre:</label>
+            <input 
+                formControlName="nombres"
+                id="nombres" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['nombres'].touched && f['nombres'].invalid" class="alert alert-danger">
+                <div *ngIf="f['nombres'].errors && f['nombres'].errors['required']">El nombre es requerido.</div>
+            </div>
+        </div>
+  
+        <div class="form-group">
+            <label for="correo_electronico">Correo Electronico</label>
+            <textarea 
+                formControlName="correo_electronico"
+                id="correo_electronico" 
+                type="text" 
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['correo_electronico'].touched && f['correo_electronico'].invalid" class="alert alert-danger">
+                <div *ngIf="f['correo_electronico'].errors && f['correo_electronico'].errors['required']">El correo electronico es requerido.</div>
+            </div>
+        </div>
+  
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>
+
